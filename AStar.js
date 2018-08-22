@@ -1,71 +1,110 @@
-function reconstruct_path(cameFrom, current) {
-    const path = [current];
-    
-    // while current in cameFrom.Keys:
-    //     current := cameFrom[current]
-    //     total_path.append(current)
+const Heap = require('game-ds').Heap;
+
+/**
+ * Find the shortest path from one node to another in a graph.
+ *
+ * @param {} start
+ * @param {} goal
+ */
+function AStar(graph, start, goal) {
+  /**
+   * Rebuild path from.
+   *
+   * @param {} cameFrom
+   * @param {} current
+   */
+  function reconstructPath(cameFrom, current) {
+    const path = [];
+
+    while(current) {
+      path.unshift(current);
+      current = cameFrom.get(current);
+    }
+
     return path;
-}
+  }
 
-function heuristic_cost_estimate(start, goal) {
-  return 0;
-}
+  /**
+   * Calculate the heuristic cost.
+   *
+   * @param {} start
+   * @param {} goal
+   */
+  function heuristicCostEstimate(start, goal) {
+    return 0;
+  }
 
-function A_Star(start, goal) {
-    // The set of nodes already evaluated
-    const closedSet = new Set(); 
+  /**
+   * Calculate distance between two nodes
+   *
+   * @param {*} v1
+   * @param {*} v2
+   */
+  function distBetween(v1, v2) {
+    const dist = graph.adjList.get(v1).get(v2);
+    return dist !== undefined ? dist : Infinity;
+  }
 
-    // The set of currently discovered nodes that are not evaluated yet.
-    // Initially, only the start node is known.
-    const openSet = new Set(); 
+  // The set of nodes already evaluated
+  const closedSet = new Set();
 
-    // For each node, which node it can most efficiently be reached from.
-    // If a node can be reached from many nodes, cameFrom will eventually contain the
-    // most efficient previous step.
-    // cameFrom := an empty map
-    const cameFrom = new Map();
+  // For each node, which node it can most efficiently be reached from.
+  // If a node can be reached from many nodes, cameFrom will eventually contain the
+  // most efficient previous step.
+  // cameFrom := an empty map
+  const cameFrom = new Map();
 
-    // For each node, the cost of getting from the start node to that node.
+  // For each node, the cost of getting from the start node to that node.
   // map with default value of Infinity
-    const gScore = new Map();
+  const gScore = new Map();
 
-    // The cost of going from start to start is zero.
-    gScore.add(start, 0);
+  // The cost of going from start to start is zero.
+  gScore.set(start, 0);
 
-    // For each node, the total cost of getting from the start node to the goal
-    // by passing by that node. That value is partly known, partly heuristic.
-    // fScore := map with default value of Infinity
-    const fScore = new Map(start, Infinity);
+  // For each node, the total cost of getting from the start node to the goal
+  // by passing by that node. That value is partly known, partly heuristic.
+  // fScore := map with default value of Infinity
+  const fScore = new Map();
 
-    // For the first node, that value is completely heuristic.
-    fScore.set(start, heuristic_cost_estimate(start, goal));
+  // // For the first node, that value is completely heuristic.
+  fScore.set(start, heuristicCostEstimate(start, goal));
 
-    //while openSet is not empty
-  while(openSet.entries.length > 0) {
-    //the node in openSet having the lowest fScore[] value
-    const current = openSet.get(openSet.keys) 
-        if(current === goal){
-            return reconstruct_path(cameFrom, current)
-        }
+  // The set of currently discovered nodes that are not evaluated yet.
+  // Initially, only the start node is known.
+  const openSet = new Heap((a, b) => fScore.get(a) < fScore.get(b));
+  openSet.push(start);
 
-        openSet.Remove(current)
-        closedSet.Add(current)
 
-        for each neighbor of current
-            if neighbor in closedSet
-                continue		// Ignore the neighbor which is already evaluated.
+  // while openSet is not empty
+  while(openSet.elements.length > 0) {
+    // the node in openSet having the lowest fScore[] value
+    const current = openSet.pop();
+    if(current === goal){
+      return reconstructPath(cameFrom, current);
+    }
 
-            // The distance from start to a neighbor
-            tentative_gScore := gScore[current] + dist_between(current, neighbor)
+    closedSet.add(current);
 
-            if neighbor not in openSet	// Discover a new node
-                openSet.Add(neighbor)
-            else if tentative_gScore >= gScore[neighbor]
-                continue		// This is not a better path.
+    graph.getNeighbors(current).forEach(neighbor => {
+      if(closedSet.has(neighbor)) {
+        return;
+      }
 
-            // This path is the best until now. Record it!
-            cameFrom[neighbor] := current
-            gScore[neighbor] := tentative_gScore
-            fScore[neighbor] := gScore[neighbor] + heuristic_cost_estimate(neighbor, goal)
+
+      let tempGScore = gScore.get(current) + distBetween(current, neighbor);
+      if(!gScore.has(neighbor)) {
+        gScore.set(neighbor, Infinity);
+      }
+      if(tempGScore >= gScore.get(neighbor)) {
+        return;
+      }
+
+      cameFrom.set(neighbor, current);
+      gScore.set(neighbor, tempGScore);
+      fScore.set(neighbor, tempGScore + heuristicCostEstimate(neighbor, goal));
+      openSet.push(neighbor);
+    });
   }
 }
+
+module.exports = AStar;

@@ -42,5 +42,8 @@
     "postversion": "git push && git push --tags"
   },
   "author": "vantreeseba@gmail.com",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "game-ds": "^0.10.0"
+  }
 }
