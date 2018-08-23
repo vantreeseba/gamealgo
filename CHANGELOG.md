@@ -1,5 +1,12 @@
+## <small>0.3.1 (2018-08-23)</small>
+
+* upgrade gameds dep ([6375f43](https://github.com/vantreeseba/gamealgo/commit/6375f43))
+
+
+
 ## 0.3.0 (2018-08-23)
 
+* 0.3.0 ([3bb4184](https://github.com/vantreeseba/gamealgo/commit/3bb4184))
 * Cleanup astar, add tests ([95a0fb6](https://github.com/vantreeseba/gamealgo/commit/95a0fb6))
 
 
