@@ -44,6 +44,6 @@
   "author": "vantreeseba@gmail.com",
   "license": "MIT",
   "dependencies": {
-    "game-ds": "^0.10.0"
+    "game-ds": "^0.11.0"
   }
 }
