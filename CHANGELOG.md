@@ -1,5 +1,12 @@
+## 0.3.0 (2018-08-23)
+
+* Cleanup astar, add tests ([95a0fb6](https://github.com/vantreeseba/gamealgo/commit/95a0fb6))
+
+
+
 ## 0.2.0 (2018-08-22)
 
+* 0.2.0 ([5230054](https://github.com/vantreeseba/gamealgo/commit/5230054))
 
 
 
