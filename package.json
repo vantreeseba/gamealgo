@@ -38,7 +38,7 @@
     "build-readme": "jsdoc2md -t README.hbs -f *.js > README.md",
     "build-changelog": "conventional-changelog -i CHANGELOG.md -s -r 0",
     "precommit": "npm run test",
-    "version": "npm run build-readme && git add README.md && npm run build-changelog && git add CHANGELOG.md",
+    "version": "npm run build-dist && git add dist && npm run build-readme && git add README.md && npm run build-changelog && git add CHANGELOG.md",
     "postversion": "git push && git push --tags"
   },
   "author": "vantreeseba@gmail.com",
