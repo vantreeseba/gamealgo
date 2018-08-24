@@ -1,5 +1,12 @@
+## 0.4.0 (2018-08-24)
+
+* Make version build ([700b306](https://github.com/vantreeseba/gamealgo/commit/700b306))
+
+
+
 ## <small>0.3.1 (2018-08-23)</small>
 
+* 0.3.1 ([2579925](https://github.com/vantreeseba/gamealgo/commit/2579925))
 * upgrade gameds dep ([6375f43](https://github.com/vantreeseba/gamealgo/commit/6375f43))
 
 
