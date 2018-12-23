@@ -1,5 +1,12 @@
+## <small>0.4.2 (2018-12-23)</small>
+
+* Fix issue with readme ([e0cc752](https://github.com/vantreeseba/gamealgo/commit/e0cc752))
+
+
+
 ## <small>0.4.1 (2018-12-23)</small>
 
+* 0.4.1 ([521c5f5](https://github.com/vantreeseba/gamealgo/commit/521c5f5))
 * Add src to npm ignore, add src folder, change entry point to dist ([0906e66](https://github.com/vantreeseba/gamealgo/commit/0906e66))
 * Fix path to index for webpack entry ([bfa305f](https://github.com/vantreeseba/gamealgo/commit/bfa305f))
 
