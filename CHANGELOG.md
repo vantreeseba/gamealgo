@@ -1,5 +1,13 @@
+## <small>0.4.1 (2018-12-23)</small>
+
+* Add src to npm ignore, add src folder, change entry point to dist ([0906e66](https://github.com/vantreeseba/gamealgo/commit/0906e66))
+* Fix path to index for webpack entry ([bfa305f](https://github.com/vantreeseba/gamealgo/commit/bfa305f))
+
+
+
 ## 0.4.0 (2018-08-24)
 
+* 0.4.0 ([0fa3399](https://github.com/vantreeseba/gamealgo/commit/0fa3399))
 * Make version build ([700b306](https://github.com/vantreeseba/gamealgo/commit/700b306))
 
 
