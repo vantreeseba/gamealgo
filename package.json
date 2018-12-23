@@ -2,8 +2,9 @@
   "name": "game-algo",
   "version": "0.4.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "browser": "dist/index.js",
+  "repository": "vantreeseba/gamealgo",
   "devDependencies": {
     "chai": "^4.1.0",
     "husky": "^0.14.3",

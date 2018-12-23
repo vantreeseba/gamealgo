@@ -1,4 +1,5 @@
 .travis.yml
+src
 test
 docs
 .nyc_output

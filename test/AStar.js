@@ -1,5 +1,5 @@
 var assert = require('chai').assert;
-var AStar = require('../AStar');
+var AStar = require('../src/AStar');
 var Graph = require('game-ds/Graph');
 
 let graph;
